@@ -1,4 +1,3 @@
-require 'json'
 require_relative '../level1/main'
 
 RSpec.describe 'Level 1 functions' do
@@ -15,7 +14,7 @@ RSpec.describe 'Level 1 functions' do
     expected_output = JSON.parse(File.read(expected_output_path))
 
     # Run main function
-    run_main
+    Level1.run_main
 
     # Get output data
     output_data = JSON.parse(File.read(output_path))

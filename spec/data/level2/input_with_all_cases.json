@@ -1,0 +1,19 @@
+{
+  "cars": [
+    { "id": 1, "price_per_day": 1000, "price_per_km": 10 }
+  ],
+  "rentals": [
+    { "id": 1, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-01", "distance": 100 },
+    { "id": 2, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-02", "distance": 100 },
+    { "id": 3, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-03", "distance": 100 },
+    { "id": 4, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-04", "distance": 100 },
+    { "id": 5, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-05", "distance": 100 },
+    { "id": 6, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-06", "distance": 100 },
+    { "id": 7, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-07", "distance": 100 },
+    { "id": 8, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-08", "distance": 100 },
+    { "id": 9, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-09", "distance": 100 },
+    { "id": 10, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-10", "distance": 100 },
+    { "id": 11, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-11", "distance": 100 }
+
+  ]
+}
