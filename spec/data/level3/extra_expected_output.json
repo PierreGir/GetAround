@@ -1,0 +1,13 @@
+{
+  "rentals": [
+    {
+      "id": 1,
+      "price": 1129,
+      "commission": {
+        "insurance_fee": 169,
+        "assistance_fee": 169,
+        "getaround_fee": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "cars": [
+    { "id": 1, "price_per_day": 10, "price_per_km": 10 }
+  ],
+  "rentals": [
+    { "id": 1, "car_id": 1, "start_date": "2015-01-01", "end_date": "2015-01-20", "distance": 100 }
+  ]
+}

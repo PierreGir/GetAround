@@ -1,2 +1,3 @@
 # Dont commit the results of every level
 **/output.json
+.byebug_history
