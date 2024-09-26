@@ -37,17 +37,27 @@ end
 def serialize(rentals)
   {
     rentals: rentals.map do |rental|
-      rental_data = {
-        id: rental.id,
-        price: rental.price
-      }
+      rental_data = { id: rental.id }
 
-      if rental.commission && rental.commission.insurance_fee
-        rental_data[:commission] = {
-          insurance_fee: rental.commission.insurance_fee,
-          assistance_fee: rental.commission.assistance_fee,
-          getaround_fee: rental.commission.getaround_fee
-        }
+      if rental.actions && !rental.actions.empty?
+        # action serialization
+        rental_data["actions"] = rental.actions.map do |action|
+          {
+            who: action["who"],
+            type: action["type"],
+            amount: action["amount"]
+          }
+        end
+      else
+        # price and commission serialization
+        rental_data["price"] = rental.price
+        if rental.commission && rental.commission.insurance_fee
+          rental_data["commission"] = {
+            insurance_fee: rental.commission.insurance_fee,
+            assistance_fee: rental.commission.assistance_fee,
+            getaround_fee: rental.commission.getaround_fee
+          }
+        end
       end
 
       rental_data

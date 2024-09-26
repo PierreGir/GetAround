@@ -3,7 +3,7 @@ require_relative 'car'
 require_relative 'commission'
 
 class Rental
-  attr_accessor :price, :commission, :duration
+  attr_accessor :price, :commission, :duration, :actions
   attr_reader :id, :car, :start_date, :end_date, :distance
 
   def initialize(id, car, start_date, end_date, distance)
@@ -13,12 +13,17 @@ class Rental
     @end_date = parse_date(end_date)
     @distance = distance
     @price = 0
+    @actions = []
   end
 
   def compute_price(strategy)
     validate_inputs
     @price = strategy.compute_price(self)
     @commission = Commission.new(self, strategy)
+  end
+
+  def compute_actions(strategy)
+    strategy.compute_actions(self)
   end
 
   def duration
