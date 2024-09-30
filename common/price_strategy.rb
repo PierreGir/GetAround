@@ -24,7 +24,6 @@ class PriceStrategyLevel2 < PriceStrategy
     end
 
     private
-
     def apply_discount(day)
         case day
         when 1 then 1.0
@@ -47,21 +46,36 @@ end
 
 class PriceStrategyLevel4 < PriceStrategyLevel3
     def compute_actions(rental)
-      actions = []
-  
-      # Driver pays the rental price
-      actions.push({ "who" => "driver", "type" => "debit", "amount" => rental.price })
-      
-      # Owner receives 70% of the price after commission
-      actions.push({ "who" => "owner", "type" => "credit", "amount" => (rental.price * 0.7).to_i })
-      
-      # Others pay the commission fees as calculated
-      actions.push({ "who" => "insurance", "type" => "credit", "amount" => rental.commission.insurance_fee })
-      actions.push({ "who" => "assistance", "type" => "credit", "amount" => rental.commission.assistance_fee })
-      actions.push({ "who" => "getaround", "type" => "credit", "amount" => rental.commission.getaround_fee })
-  
-      rental.actions = actions
+        actions = []
+
+        # Driver pays the rental price
+        actions.push({ "who" => "driver", "type" => "debit", "amount" => rental.price })
+
+        # Owner receives 70% of the price after commission
+        actions.push({ "who" => "owner", "type" => "credit", "amount" => (rental.price * 0.7).to_i })
+
+        # Others pay the commission fees as calculated
+        actions.push({ "who" => "insurance", "type" => "credit", "amount" => rental.commission.insurance_fee })
+        actions.push({ "who" => "assistance", "type" => "credit", "amount" => rental.commission.assistance_fee })
+        actions.push({ "who" => "getaround", "type" => "credit", "amount" => rental.commission.getaround_fee })
+
+        rental.actions = actions
     end
-  end
-  
+end
+
+class PriceStrategyLevel5 < PriceStrategyLevel4
+    def compute_actions(rental)
+        super(rental)
+
+        rental.options.each do |option|
+            additional_amount = option.price_per_day * rental.duration
+
+            # Add to driver's debit amount
+            rental.actions.find { |action| action["who"] == "driver" }["amount"] += additional_amount
+
+            # Add to the beneficiary's credit amount
+            rental.actions.find { |action| action["who"] == option.beneficiary }["amount"] += additional_amount
+        end
+    end
+end
   

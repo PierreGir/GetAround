@@ -3,7 +3,7 @@ require_relative 'car'
 require_relative 'commission'
 
 class Rental
-  attr_accessor :price, :commission, :duration, :actions
+  attr_accessor :price, :commission, :duration, :actions, :options
   attr_reader :id, :car, :start_date, :end_date, :distance
 
   def initialize(id, car, start_date, end_date, distance)
@@ -14,6 +14,7 @@ class Rental
     @distance = distance
     @price = 0
     @actions = []
+    @options = []
   end
 
   def compute_price(strategy)
@@ -29,7 +30,7 @@ class Rental
   def duration
     (@end_date - @start_date).to_i + 1
   end
-  
+
   private
   def parse_date(date_string)
     Date.parse(date_string)
@@ -43,5 +44,4 @@ class Rental
     raise "Price per day cannot be nil" if @car.price_per_day.nil?
     raise "Price per km cannot be nil" if @car.price_per_km.nil?
   end
-
 end
