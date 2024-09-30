@@ -6,6 +6,10 @@ class PriceStrategy
     def compute_commission_details(rental)
         # Do nothing by default
     end
+
+    def compute_actions(rental)
+        # Do nothing by default
+    end
 end
 
 class PriceStrategyLevel1 < PriceStrategy

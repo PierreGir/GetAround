@@ -33,8 +33,9 @@ RSpec.describe 'Level 2 functions' do
 
     # Compute the price for each rental
     price_strategy_level_2 = PriceStrategyLevel2.new
+    rental_manager = RentalManager.new
     rentals.each do |rental|
-        rental.compute_price(price_strategy_level_2)
+        rental_manager.process_rental(rental, price_strategy_level_2)
     end
 
     # Get output data
