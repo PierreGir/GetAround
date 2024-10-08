@@ -2,9 +2,9 @@ class Option
   attr_reader :id, :type
 
   OPTION_DETAILS = {
-    "gps" => { price: 5, beneficiary: "owner" },
-    "baby_seat" => { price: 2, beneficiary: "owner" },
-    "additional_insurance" => { price: 10, beneficiary: "getaround" }
+    "gps" => { price: 500, beneficiary: "owner" },
+    "baby_seat" => { price: 200, beneficiary: "owner" },
+    "additional_insurance" => { price: 1000, beneficiary: "getaround" }
   }
 
   def initialize(id, type)

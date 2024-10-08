@@ -10,12 +10,12 @@
         {
           "who": "driver",
           "type": "debit",
-          "amount": 3007
+          "amount": 3700
         },
         {
           "who": "owner",
           "type": "credit",
-          "amount": 2107
+          "amount": 2800
         },
         {
           "who": "insurance",
@@ -43,7 +43,7 @@
         {
           "who": "driver",
           "type": "debit",
-          "amount": 6820
+          "amount": 8800
         },
         {
           "who": "owner",
@@ -63,7 +63,7 @@
         {
           "who": "getaround",
           "type": "credit",
-          "amount": 840
+          "amount": 2820
         }
       ]
     },
